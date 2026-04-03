@@ -1,0 +1,165 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Ndebele",
+    "scopeName": "source.ndebele",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#numbers" },
+        { "include": "#keywords_control" },
+        { "include": "#keywords_type" },
+        { "include": "#keywords_decl" },
+        { "include": "#keywords_special" },
+        { "include": "#nil_literal" },
+        { "include": "#function_call" },
+        { "include": "#struct_instantiation" },
+        { "include": "#method_call" },
+        { "include": "#identifiers" },
+        { "include": "#operators" },
+        { "include": "#punctuation" }
+    ],
+    "repository": {
+        "comments": {
+            "name": "comment.line.double-slash.ndebele",
+            "match": "//.*$"
+        },
+
+        "strings": {
+            "name": "string.quoted.double.ndebele",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.ndebele",
+                    "match": "\\\\."
+                }
+            ]
+        },
+
+        "numbers": {
+            "name": "constant.numeric.ndebele",
+            "match": "\\b[0-9]+(\\.[0-9]+)?\\b"
+        },
+
+        "nil_literal": {
+            "name": "constant.language.nil.ndebele",
+            "match": "\\akulalutho\\b"
+        },
+
+        "keywords_control": {
+            "comment": "Control flow: if, while, loop, break, continue, return",
+            "name": "keyword.control.ndebele",
+            "match": "\\b(uma|phindaUma|phinda|phuma|qhubeka|phendukisa|kungela)\\b"
+        },
+
+        "keywords_type": {
+            "comment": "Type annotations: inombolo (float64), ibala (string)",
+            "name": "storage.type.ndebele",
+            "match": "\\b(inombolo|ibala)\\b"
+        },
+
+        "keywords_decl": {
+            "comment": "Declaration keywords: isigoqelo (fn), isakhi (struct), bumba (new), yenza (val)",
+            "name": "keyword.declaration.ndebele",
+            "match": "\\b(isigoqelo|isakhi|bumba|yenza)\\b"
+        },
+
+        "keywords_special": {
+            "comment": "Built-ins: bhala (print), mina (self)",
+            "name": "support.function.builtin.ndebele",
+            "match": "\\b(bhala|mina)\\b"
+        },
+
+        "function_call": {
+            "comment": "Function calls: identifier followed by (",
+            "match": "\\b([A-Za-z_][A-Za-z0-9_]*)(?=\\s*\\()",
+            "captures": {
+                "1": { "name": "entity.name.function.ndebele" }
+            }
+        },
+
+        "struct_instantiation": {
+            "comment": "Struct name after bumba",
+            "match": "(?<=\\bbumba\\s{0,20})([A-Za-z_][A-Za-z0-9_]*)",
+            "captures": {
+                "1": { "name": "entity.name.type.ndebele" }
+            }
+        },
+
+        "method_call": {
+            "comment": "Method access: foo.bar or mina.bar",
+            "match": "(?<=\\.)([A-Za-z_][A-Za-z0-9_]*)(?=\\s*\\()",
+            "captures": {
+                "1": { "name": "entity.name.function.member.ndebele" }
+            }
+        },
+
+        "identifiers": {
+            "comment": "PascalCase = type/struct name; UPPER_CASE = constant; else plain variable",
+            "patterns": [
+                {
+                    "name": "entity.name.type.ndebele",
+                    "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+                },
+                {
+                    "name": "variable.other.ndebele",
+                    "match": "\\b[a-z_][A-Za-z0-9_]*\\b"
+                }
+            ]
+        },
+
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.comparison.ndebele",
+                    "match": "(==|!=|<=|>=|<|>)"
+                },
+                {
+                    "name": "keyword.operator.assignment.ndebele",
+                    "match": "(?<![=!<>])=(?!=)"
+                },
+                {
+                    "name": "keyword.operator.arithmetic.ndebele",
+                    "match": "[+\\-*/]"
+                }
+            ]
+        },
+
+        "punctuation": {
+            "patterns": [
+                {
+                    "name": "punctuation.terminator.statement.ndebele",
+                    "match": ";"
+                },
+                {
+                    "name": "punctuation.separator.colon.ndebele",
+                    "match": ":"
+                },
+                {
+                    "name": "punctuation.separator.comma.ndebele",
+                    "match": ","
+                },
+                {
+                    "name": "punctuation.accessor.dot.ndebele",
+                    "match": "\\."
+                },
+                {
+                    "name": "punctuation.definition.block.begin.ndebele",
+                    "match": "\\{"
+                },
+                {
+                    "name": "punctuation.definition.block.end.ndebele",
+                    "match": "\\}"
+                },
+                {
+                    "name": "punctuation.section.parens.begin.ndebele",
+                    "match": "\\("
+                },
+                {
+                    "name": "punctuation.section.parens.end.ndebele",
+                    "match": "\\)"
+                }
+            ]
+        }
+    }
+}

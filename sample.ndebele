@@ -1,0 +1,42 @@
+// Sample Ndebele program — tests all token types
+
+isigoqelo ukwambula(ibala igama, inombolo iminyaka) {
+    bhala("Sawubona, " + igama);
+    bhala(iminyaka);
+}
+
+isakhi Umuntu {
+    ibala igama;
+    inombolo iminyaka;
+}
+
+yenza umuntu = bumba Umuntu {
+    igama: "Tawanda",
+    iminyaka: 25,
+};
+
+uma umuntu.iminyaka >= 18 {
+    bhala("Umuntu omkhulu");
+}
+
+phinda {
+    uma kungela umuntu.igama {
+        phuma;
+    }
+    qhubeka;
+}
+
+phindaUma umuntu.iminyaka != 0 {
+    bhala("Iyaqhubeka");
+    umuntu.iminyaka = umuntu.iminyaka - 1;
+}
+
+yenza zilungile = akulalutho;
+uma zilungile == akulalutho {
+    bhala("Akukho lutho");
+}
+
+isigoqelo Umuntu::ikhuluma(mina, ibala umlayezo) {
+    bhala(mina.igama + ": " + umlayezo);
+    phendukisa 1;
+}

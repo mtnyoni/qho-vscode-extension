@@ -1,0 +1,46 @@
+{
+    "name": "qho",
+    "displayName": "Ndebele Language",
+    "description": "Syntax highlighting for the Ndebele programming language",
+    "version": "0.1.0",
+    "publisher": "tawanda",
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "repository": {
+        "url": "https://github.com/mtnyoni/qho-vscode-extension"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "ndebele",
+                "aliases": [
+                    "Ndebele",
+                    "ndebele"
+                ],
+                "extensions": [
+                    ".ndebele"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ndebele",
+                "scopeName": "source.ndebele",
+                "path": "./syntaxes/ndebele.tmLanguage.json"
+            }
+        ],
+        "themes": []
+    },
+    "scripts": {
+        "vscode:prepublish": "echo 'No build step required'",
+        "package": "vsce package"
+    },
+    "devDependencies": {
+        "@vscode/vsce": "^3.7.1"
+    }
+}
