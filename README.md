@@ -43,7 +43,7 @@ Open or create any file with a `.ndb` extension and the highlighting activates a
 
 ## File Extension
 
-`.ndb` — short for Ndebele.
+`.ndebele` .
 
 ## Keyword Reference
 
